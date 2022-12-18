@@ -5,16 +5,16 @@
     <div class="row">
         <div class="col-6">
             @if($product->photos->count())
-                <img src="{{asset('storage/' . $product->photos->first()->image)}}" alt="card-img-top" class="img-fluid">
+                <img src="{{asset('storage/' . $product->thump)}}" alt="" class="card-img-top img-fluid thumb">
                 <div class="row" style="margin-top: 20px">
                     @foreach ($product->photos as $photo)
                         <div class="col-4">
-                            <img src="{{asset('storage/' . $photo->image)}}" alt="" class="img-fluid">
+                            <img src="{{asset('storage/' . $photo->image)}}" alt="" class="img-fluid img-small">
                         </div>
                     @endforeach
                 </div>
             @else
-                <img src="{{asset('assets/img/no-photo.jpg')}}" alt="card-img-top" class="img-fluid">
+                <img src="{{asset('assets/img/no-photo.jpg')}}" alt="" class="card-img-top img-fluid">
             @endif
         </div>
         <div class="col-6">
@@ -48,4 +48,18 @@
             {{$product->body}}
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        let thumb = document.querySelector('img.thumb');
+        let imgSmall = document.querySelector('img.img-small');
+
+        imgSmall.forEach(function(el) {
+            el.addEventListener('click', function(){
+                // alert(el.src);
+                thumb.src = el.src;
+            });
+        });
+    </script>
 @endsection

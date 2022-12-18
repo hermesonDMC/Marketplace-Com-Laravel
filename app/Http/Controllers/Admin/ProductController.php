@@ -60,7 +60,8 @@ class ProductController extends Controller
         $categories = $request->get('categories', null);
          
         $data['price'] = formatPriceToDatabase($data['price']);
-
+        // $data['slug'] = $data['name'];
+        
         $store = auth()->user()->store;
         $product = $store->products()->create($data);
 

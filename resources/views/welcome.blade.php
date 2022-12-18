@@ -6,7 +6,7 @@
         <div class="col-md-4">
             <div class="card" style="width: 100%;">
                 @if ($product->photos->count())
-                    <img src="{{asset('storage/' . $product->photos->first()->image)}}" alt="card-img-top">
+                    <img src="{{asset('storage/' . $product->thumb)}}" alt="card-img-top">
                 @else
                     <img src="{{asset('assets/img/no-photo.jpg')}}" alt="card-img-top">
                 @endif

@@ -29,7 +29,7 @@ class CreditCard {
 
         foreach($this->items as $item) {     
             $creditCard->addItems()->withParameters(
-                $item['name'],
+                $item['id'],
                 // $this->reference,
                 $item['name'],
                 $item['amount'],
@@ -88,7 +88,7 @@ class CreditCard {
         // Set the credit card holder information
         $creditCard->setHolder()->setBirthdate('01/10/1979');
         // $creditCard->setHolder()->setName($user->name); $this->cardInfo
-        $creditCard->setHolder()->setName($user->name);
+        $creditCard->setHolder()->setName($this->cardInfo['card_name']);
 
         $creditCard->setHolder()->setPhone()->withParameters(
             11,
